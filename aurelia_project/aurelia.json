@@ -24,21 +24,13 @@
         "name": "app-bundle.js",
         "source": [
           "[**/*.js]",
-          "**/*.{css,html}"
+          "**/*.{css,html}",
+          "../node_modules/object-assign/index.js"
         ]
       },
       {
         "name": "vendor-bundle.js",
         "prepend": [
-          "node_modules/bluebird/js/browser/bluebird.core.js",
-          {
-            "path": "node_modules/aurelia-cli/lib/resources/scripts/configure-bluebird-no-long-stacktraces.js",
-            "env": "stage & prod"
-          },
-          {
-            "path": "node_modules/aurelia-cli/lib/resources/scripts/configure-bluebird.js",
-            "env": "dev"
-          },
           "node_modules/requirejs/require.js"
         ],
         "dependencies": [
@@ -79,7 +71,25 @@
             "main": "aurelia-testing",
             "env": "dev"
           },
-          "text"
+          "text",
+          {
+            "name": "react",
+            "main": "react.development.js",
+            "path": "../node_modules/react/umd",
+            "resources": []
+          },
+          {
+            "name": "react-dom",
+            "main": "react-dom.development.js",
+            "path": "../node_modules/react-dom/umd",
+            "resources": []
+          },
+          {
+            "name": "fbjs",
+            "main": "index.js",
+            "path": "../node_modules/fbjs",
+            "resources": []
+          }
         ]
       }
     ],
